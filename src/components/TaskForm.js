@@ -1,7 +1,10 @@
 import { useState } from "react";
+import {useTasksContext} from '../hooks/useTasksContext';
+
 // import Button from '@mui/material/Button';
 import { TextField , Button } from "@mui/material";
 const TaskForm = () =>{
+   const {dispatch} = useTasksContext();
   const [title,setTitle] = useState('');
   const [description,setDesc] = useState('');
   const [error,setError] = useState(null);
@@ -29,6 +32,7 @@ const TaskForm = () =>{
           setDesc('');
           setError(null);
           console.log("New Task Added", json);
+          dispatch({type:'CREATE_TASK',payload:json});
         }
   }
   return (
