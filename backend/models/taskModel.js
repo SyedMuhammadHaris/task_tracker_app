@@ -10,9 +10,10 @@ const taskSchema = new Schema({
         type:String,
         required:true
     },
-    completed:{
-        type:Boolean
-    }
+    user_id: {
+        type: String,
+        required: true
+      }
 },{timestamps:true})
 
 module.exports = mongoose.model('Task',taskSchema);

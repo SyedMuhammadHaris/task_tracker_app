@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const taskRoutes = require('./routes/task_tracker_routes.js');
+const usersRoute = require('./routes/userRoutes') 
 const mongoose = require('mongoose');
 //express app 
 const app = express();
@@ -15,6 +16,9 @@ app.use((req,res,next)=>{
 
 //routes
 app.use('/api/tasks',taskRoutes);
+app.use('/api/users', usersRoute);
+
+
 
 //connect to db
 mongoose.connect(process.env.MONGO_URI)

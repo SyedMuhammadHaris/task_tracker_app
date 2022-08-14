@@ -7,6 +7,10 @@ const {getAllTask,
 } 
 
 = require('../controller/taskController.js');
+const requireAuth = require('../middleware/requireAuth');
+
+// require auth for all workout routes
+router.use(requireAuth);
 
 //Get All Task Route
 router.get('/',getAllTask);
